@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+  <head>
+    <%-title%>
+    <%-meta%>
+  </head>
+  <body>
+    <div id="app"><%- typeof html === 'undefined' ? '' : html %></div>
+    <script>
+      window.__reduxInitialState = <%-JSON.stringify(store.getState()) %>;
+    </script>
+    <script src="/js/app-bundle.js"></script>
+  </body>
+</html>

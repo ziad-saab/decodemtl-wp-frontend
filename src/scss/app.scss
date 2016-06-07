@@ -1,0 +1,39 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+.loading-box {
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+  padding: 5px 10px;
+  background-color: hsl(110, 65%, 50%);
+  color: white;
+  font-family: helvetica, arial, sans-serif;
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 150ms ease-in;
+}
+.fade-leave {
+  opacity: 1;
+}
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 150ms ease-in;
+}

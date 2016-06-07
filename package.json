@@ -1,0 +1,57 @@
+{
+  "name": "decodemtl-wp-frontend",
+  "version": "0.0.1",
+  "description": "Frontend for DecodeMTL.com running off WordPress API",
+  "main": "app-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "DEV_SERVER=true node server.babel.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ziad-saab/decodemtl-wp-frontend.git"
+  },
+  "author": "Ziad Saab <ziad.saab@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ziad-saab/decodemtl-wp-frontend/issues"
+  },
+  "homepage": "https://github.com/ziad-saab/decodemtl-wp-frontend#readme",
+  "dependencies": {
+    "babel-core": "^6.9.0",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-react-intl": "^2.1.3",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "css-loader": "^0.23.1",
+    "ejs": "^2.4.2",
+    "express": "^4.13.4",
+    "isomorphic-fetch": "^2.2.1",
+    "node-sass": "^3.7.0",
+    "react": "^15.1.0",
+    "react-addons-css-transition-group": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-helmet": "^3.1.0",
+    "react-intl": "^2.1.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.4.1",
+    "react-router-redux": "^4.0.4",
+    "redux": "^3.5.2",
+    "redux-connect": "^2.4.0",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.1.0",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2",
+    "react-hot-loader": "^1.3.0",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0"
+  },
+  "babel": {
+    "presets": ["react","es2015","stage-0"]
+  }
+}
