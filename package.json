@@ -5,7 +5,10 @@
   "main": "app-server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "DEV_SERVER=true node server.babel.js"
+    "dev:build-server": "webpack --config ./webpack/webpack.config.server.dev.js --watch --colors --display-error-details",
+    "dev:build-client": "node ./dev-server.js",
+    "dev:run-server": "nodemon ./start-server.js --watch './build/server'",
+    "dev": "npm-run-all --print-label --parallel dev:*"
   },
   "repository": {
     "type": "git",
@@ -18,6 +21,7 @@
   },
   "homepage": "https://github.com/ziad-saab/decodemtl-wp-frontend#readme",
   "dependencies": {
+    "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.9.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-react-intl": "^2.1.3",
@@ -27,7 +31,9 @@
     "css-loader": "^0.23.1",
     "ejs": "^2.4.2",
     "express": "^4.13.4",
+    "file-loader": "^0.8.5",
     "isomorphic-fetch": "^2.2.1",
+    "json-loader": "^0.5.4",
     "node-sass": "^3.7.0",
     "react": "^15.1.0",
     "react-addons-css-transition-group": "^15.1.0",
@@ -43,15 +49,18 @@
     "redux-thunk": "^2.1.0",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
+    "universal-webpack": "^0.1.12",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.1"
   },
   "devDependencies": {
+    "autoprefixer": "^6.3.6",
     "nodemon": "^1.9.2",
+    "npm-run-all": "^2.1.1",
+    "postcss-loader": "^0.9.1",
+    "precss": "^1.4.0",
     "react-hot-loader": "^1.3.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0"
-  },
-  "babel": {
-    "presets": ["react","es2015","stage-0"]
   }
 }
