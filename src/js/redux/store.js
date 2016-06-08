@@ -21,7 +21,7 @@ export default function makeStore(history, initialState) {
   const reduxRouterMiddleware = routerMiddleware(history);
 
   let middleware = [reduxThunk, reduxRouterMiddleware];
-  if (__CLIENT__) {
+  if (__DEV__ && __CLIENT__) {
     middleware.push(logger);
   }
   const createStoreWithMiddleware = compose(

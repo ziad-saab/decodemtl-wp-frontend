@@ -24,6 +24,10 @@ export default function server(parameters) {
   const app = express();
   app.set('view engine', 'ejs');
 
+  if (__PROD__) {
+    app.use('/assets', express.static('./build/assets'));
+  }
+
   /*
     This will be the most visited route of our application: it responds to all paths.
     For each request that comes to our web server, we will create a new store.
@@ -84,7 +88,7 @@ export default function server(parameters) {
       console.log(err.stack);
     }
     else {
-      console.log("Server listening on %j", server.address());
+      console.log("Server listening on http://%s:%s", server.address().address, server.address().port);
     }
   });
 }
