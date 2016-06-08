@@ -12,13 +12,17 @@ import Loading from '../components/Loading';
   Finally, it displays the Loading bar, the base Helmet config for <head> and the router children
 */
 class App extends React.Component {
+  static propTypes = {
+    i18n: React.PropTypes.object
+  };
+
   render() {
-    const {intl} = this.props;
+    const {i18n} = this.props;
     return (
-      <IntlProvider locale={intl.language} messages={intl.messages}>
+      <IntlProvider locale={i18n.language} messages={i18n.messages}>
         <main>
           <Loading/>
-          <Helmet {...config.app.head[intl.language]}/>
+          <Helmet {...config.app.head[i18n.language]}/>
           {this.props.children}
         </main>
       </IntlProvider>
@@ -26,4 +30,4 @@ class App extends React.Component {
   }
 }
 
-export default connect( ({intl}) => ({intl}) )(App);
+export default connect( ({i18n}) => ({i18n}) )(App);

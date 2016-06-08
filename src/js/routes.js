@@ -8,7 +8,7 @@ import BlogPost from './pages/BlogPost';
 import Courses from './pages/Courses';
 import CoursePage from './pages/CoursePage';
 import SinglePage from './pages/SinglePage';
-import {switchLanguage} from './redux/modules/intl';
+import {switchLanguage} from './redux/modules/i18n';
 
 /*
   Instead of directly defining our app routes, we have to export a function that receives the store.

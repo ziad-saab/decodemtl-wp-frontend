@@ -1,8 +1,13 @@
-import frenchMessages from '../../fr';
+import frenchMessages from '../../language/fr';
 
 const SWITCH_LANGUAGE = 'SWITCH_LANGUAGE';
 
 export const DEFAULT_LANGUAGE = 'en';
+
+const initialState = {
+  language: DEFAULT_LANGUAGE,
+  messages: {}
+};
 
 /*
   This module takes care of the i18n logic.
@@ -11,7 +16,7 @@ export const DEFAULT_LANGUAGE = 'en';
 
   We export an action called switchLanguage which is used by onEnter in the router
 */
-export default function reducer(state=DEFAULT_LANGUAGE, action={}) {
+export default function reducer(state=initialState, action={}) {
   switch (action.type) {
     case SWITCH_LANGUAGE:
       const messages = action.language === 'en' ? {} : frenchMessages;

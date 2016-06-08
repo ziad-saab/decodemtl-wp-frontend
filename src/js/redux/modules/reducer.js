@@ -4,7 +4,8 @@ import {reducer as reduxAsyncConnect} from 'redux-connect';
 
 import studentsReducer from './students';
 import pagesReducer from './pages';
-import intlReducer from './intl';
+import i18nReducer from './i18n';
+import ssrReducer from './ssr';
 
 /*
   This is our main app reducer.
@@ -16,5 +17,6 @@ export default combineReducers({
   reduxAsyncConnect,
   students: studentsReducer,
   pages: pagesReducer,
-  intl: intlReducer
+  i18n: i18nReducer,
+  ssr: ssrReducer
 });

@@ -15,8 +15,8 @@ export function fetchStudents() {
     .then(res => res.json());
 }
 
-export function fetchPage(slug) {
-  return fetch(API_URL + '/pages?' + querystring.stringify({'filter[pagename]': slug}))
+export function fetchPage(slug, language) {
+  return fetch(API_URL + '/pages?' + querystring.stringify({'filter[pagename]': slug, lang: language}))
     .then(res => res.json())
     .then(res => res[0])
 }

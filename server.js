@@ -52,6 +52,12 @@ export default function server(parameters) {
       } else if (renderProps) {
         loadOnServer({...renderProps, store})
         .then(() => {
+
+          // Check if there's a 404 after loading data on server
+          if (store.getState().ssr.error404) {
+            res.status(404);
+          }
+
           var html;
           try {
             html = renderToString(
@@ -67,16 +73,26 @@ export default function server(parameters) {
           const head = Helmet.rewind();
           const title = head.title.toString();
           const meta = head.meta.toString();
+          const link = head.link.toString();
 
           const chunks = parameters.chunks();
           const appJs = chunks && chunks.javascript && chunks.javascript.main;
           const appCss = chunks && chunks.styles && chunks.styles.main;
 
-          res.render('index', {html, title, meta, store, appCss, appJs});
+          res.render('index', {html, title, meta, link, store, appCss, appJs});
         })
-        .catch(err => console.log(err.stack));
+        .catch(err => {
+          console.error(err.stack);
+          res.status(500);
+          if (__DEV__) {
+            res.send(err.stack);
+          }
+          else {
+            res.send('Server Error');
+          }
+        });
       } else {
-        res.status(404).send('Not found');
+        res.status(404).send('Not Found');
       }
     });
 

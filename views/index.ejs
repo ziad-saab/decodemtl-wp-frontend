@@ -7,6 +7,7 @@
     <% if (typeof appCss !== 'undefined') {%>
       <link rel="stylesheet" href="<%=appCss%>">
     <%}%>
+    <%-link%>
   </head>
   <body>
     <div id="app"><%- typeof html === 'undefined' ? '' : html %></div>
