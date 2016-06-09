@@ -8,11 +8,11 @@ import NotFound from '../components/NotFound';
 
 class SinglePage extends React.Component {
   static propTypes = {
-    pages: React.PropTypes.object
+    page: React.PropTypes.object
   };
 
   render() {
-    let page = this.props.pages[this.props.params.slug];
+    let {page} = this.props;
 
     if (!page || !page.data || page.error === 404) {
       return <NotFound/>;
@@ -40,5 +40,5 @@ export default asyncConnect([
     deferred: true
   }
 ])(
-  connect(({pages}) => ({pages}))(SinglePage)
+  connect(({pages}, {params: {slug}}) => ({page: pages[slug]}))(SinglePage)
 );
