@@ -34,7 +34,7 @@ export default function makeStore(history, initialState) {
 
   if (module.hot) {
     module.hot.accept('./modules/reducer', () => {
-      const nextRootReducer = require('./modules/reducer');
+      const nextRootReducer = require('./modules/reducer').default;
       store.replaceReducer(nextRootReducer);
     });
   }
