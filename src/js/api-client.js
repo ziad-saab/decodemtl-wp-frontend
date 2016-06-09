@@ -26,3 +26,8 @@ export function fetchCourse(slug, language) {
     .then(res => res.json())
     .then(res => res[0]);
 }
+
+export function fetchBlog(language) {
+  return fetch(API_URL + '/posts?' + querystring.stringify({lang: language}))
+    .then(res => res.json());
+}

@@ -2,11 +2,12 @@ import {combineReducers} from 'redux';
 import {routerReducer} from 'react-router-redux';
 import {reducer as reduxAsyncConnect} from 'redux-connect';
 
+import i18nReducer from './i18n';
+import ssrReducer from './ssr';
 import studentsReducer from './students';
 import pagesReducer from './pages';
 import coursesReducer from './courses';
-import i18nReducer from './i18n';
-import ssrReducer from './ssr';
+import blogReducer from './blog';
 
 /*
   This is our main app reducer.
@@ -20,5 +21,6 @@ export default combineReducers({
   pages: pagesReducer,
   courses: coursesReducer,
   i18n: i18nReducer,
-  ssr: ssrReducer
+  ssr: ssrReducer,
+  blog: blogReducer
 });
