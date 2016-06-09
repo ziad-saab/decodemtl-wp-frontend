@@ -1,4 +1,5 @@
 import {LOAD_PAGE_FAIL} from './pages';
+import {LOAD_COURSE_FAIL} from './courses';
 
 const initialState = {};
 
@@ -10,6 +11,7 @@ const initialState = {};
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case LOAD_PAGE_FAIL:
+    case LOAD_COURSE_FAIL:
       return {
         ...state,
         error404: true

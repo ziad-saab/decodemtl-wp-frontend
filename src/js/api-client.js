@@ -18,5 +18,11 @@ export function fetchStudents() {
 export function fetchPage(slug, language) {
   return fetch(API_URL + '/pages?' + querystring.stringify({'filter[pagename]': slug, lang: language}))
     .then(res => res.json())
-    .then(res => res[0])
+    .then(res => res[0]);
+}
+
+export function fetchCourse(slug, language) {
+  return fetch(API_URL + '/course?' + querystring.stringify({'filter[name]': slug, lang: language}))
+    .then(res => res.json())
+    .then(res => res[0]);
 }
