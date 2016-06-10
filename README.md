@@ -22,9 +22,9 @@ In no particular order, the front-end makes use of the following technologies. T
 * [webpack](https://webpack.github.io/) for development with hot reloading, and bundling for production.
 
 ## TODO
-- [ ] Add webpack isomorphic tools or similar, to make reloading of components possible on the server.
+- [x] Add webpack isomorphic tools or similar, to make reloading of components possible on the server.
 - [ ] Figure out how to write the styles. I'm used to the idea of a separate SASS directory, but having the styles alongside the components makes sense.
-- [ ] Implement the blog, courses and pages components with their reducers and API calls.
+- [x] Implement the blog, courses and pages components with their reducers and API calls.
 - [ ] Implement the course application form with redux-form.
 - [ ] Figure out the best place to hook to for URL changes, and send them to analytics.
 
