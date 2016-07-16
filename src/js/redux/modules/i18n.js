@@ -1,12 +1,17 @@
 import frenchMessages from '../../language/fr';
+import LOAD_COURSE_SUCCESS from './courses';
 
 const SWITCH_LANGUAGE = 'SWITCH_LANGUAGE';
 
 export const DEFAULT_LANGUAGE = 'en';
+const DEFAULT_EN_PATH = '/';
+const DEFAULT_FR_PATH = '/';
 
 const initialState = {
   language: DEFAULT_LANGUAGE,
-  messages: {}
+  messages: {},
+  frLink: DEFAULT_FR_PATH,
+  enLink: DEFAULT_EN_PATH
 };
 
 /*
@@ -24,6 +29,24 @@ export default function reducer(state=initialState, action={}) {
         ...state,
         language: action.language,
         messages: messages
+      };
+
+    case LOAD_COURSE_SUCCESS:
+      const course = action.result;
+      let enLink, frLink;
+      if (course) {
+        enLink = '/courses/' + url.parse(course.link_en).path.replace('/course/', '');
+        frLink = '/fr/cours/' + url.parse(course.link_fr).path.replace('/fr/course/', '');
+      }
+      else {
+        enLink = DEFAULT_EN_PATH;
+        frLink = DEFAULT_FR_PATH;
+      }
+
+      return {
+        ...state,
+        enLink,
+        frLink
       };
   }
 

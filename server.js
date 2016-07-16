@@ -52,7 +52,6 @@ export default function server(parameters) {
       } else if (renderProps) {
         loadOnServer({...renderProps, store})
         .then(() => {
-
           // Check if there's a 404 after loading data on server
           if (store.getState().ssr.error404) {
             res.status(404);

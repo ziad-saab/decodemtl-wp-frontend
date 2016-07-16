@@ -22,9 +22,9 @@ export function fetchPage(slug, language) {
 }
 
 export function fetchCourse(slug, language) {
-  return fetch(API_URL + '/course?' + querystring.stringify({'filter[name]': slug, lang: language}))
-    .then(res => res.json())
-    .then(res => res[0]);
+  slug = slug.replace(/[^a-z0-9-]/g, '');
+  return fetch(API_URL + `/course/${slug}?` + querystring.stringify({lang: language}))
+    .then(res => res.json());
 }
 
 export function fetchBlog(language) {

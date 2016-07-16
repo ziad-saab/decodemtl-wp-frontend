@@ -29,6 +29,7 @@ class Home extends React.Component {
       <div>
         <Helmet title={intl.formatMessage({id: 'homePage.title', defaultMessage: 'Home!'})}/>
         <h1>Home</h1>
+        <Link to="/courses/web-development">dev!</Link>
         <ul>
           {this.props.students.loaded &&
             this.props.students.data.map(student => (

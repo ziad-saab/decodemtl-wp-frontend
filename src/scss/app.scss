@@ -37,3 +37,16 @@ body {
   opacity: 0.01;
   transition: opacity 150ms ease-in;
 }
+
+.language-switcher {
+  &__list {
+    list-style: none;
+  }
+  &__current {
+    a {
+      text-decoration: none;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}

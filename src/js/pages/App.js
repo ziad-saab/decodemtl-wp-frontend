@@ -5,6 +5,7 @@ import {IntlProvider} from 'react-intl';
 
 import config from '../config';
 import Loading from '../components/Loading';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 
 /*
   This component wraps the app in a react-intl provider
@@ -23,6 +24,7 @@ class App extends React.Component {
         <main>
           <Loading/>
           <Helmet {...config.app.head[i18n.language]}/>
+          <LanguageSwitcher/>
           {this.props.children}
         </main>
       </IntlProvider>

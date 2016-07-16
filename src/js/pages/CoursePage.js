@@ -1,9 +1,12 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {asyncConnect} from 'redux-connect';
 import Helmet from 'react-helmet';
+import url from 'url';
 
 import {load as loadCourse} from '../redux/modules/courses';
+import {setLinks} from '../redux/modules/i18n';
 import NotFound from '../components/NotFound';
 
 class CoursePage extends React.Component {
@@ -23,9 +26,9 @@ class CoursePage extends React.Component {
     return (
       <div>
         <Helmet
-          title={course.title.rendered}
+          title={course.title}
         />
-        <h2>{course.title.rendered}</h2>
+        <h2>{course.title}</h2>
         <pre>
           {JSON.stringify(course, null, 4)}
         </pre>
@@ -40,5 +43,7 @@ export default asyncConnect([
     deferred: true
   }
 ])(
-  connect(({courses}, {params: {slug}}) => ({course: courses[slug]}))(CoursePage)
+  connect(
+    ({courses}, {params: {slug}}) => ({course: courses[slug]})
+  )(CoursePage)
 );
